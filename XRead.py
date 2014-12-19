@@ -11,7 +11,7 @@ class App:
 
         filemenu=Menu(menubar,tearoff=0)
         filemenu.add_command(label='Quit',command=self.Q,accelerator="Ctrl+Q")
-        filemenu.add_command(label='New',command=self.Open,accelerator="Ctrl+N")
+        filemenu.add_command(label='New',command=self.New,accelerator="Ctrl+N")
         filemenu.add_command(label='Open',command=self.Open,accelerator="Ctrl+O")
         filemenu.add_command(label='Save',command=self.Save,accelerator="Ctrl+S")
         filemenu.add_command(label='Save As...',command=self.Save_as,accelerator="Ctrl+Shift+S")
