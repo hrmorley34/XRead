@@ -1,3 +1,5 @@
-XRead Python Text Editor
+# XRead Python Text Editor
+## V1.1
+## By poikNplop
 
-Uses Python 3.2 & Tk/Tcl
+A Python 3 and Tkinter Text Editor.
