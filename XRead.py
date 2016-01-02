@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
+
 from tkinter import *
 import tkinter.filedialog as fd
 import tkinter.messagebox as mb
