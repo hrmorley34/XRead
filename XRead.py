@@ -4,8 +4,9 @@
 from tkinter import *
 import tkinter.filedialog as fd
 import tkinter.messagebox as mb
+import XReadWeb as web
 
-version='1.1.1'
+version='1.1.2 +WE'+web.version+''
 xreadInfo='This is XRead Text Editor version '+version+'''.
 This uses Python 3 and Tkinter.
 Created by poikNplop on Github.
@@ -26,8 +27,15 @@ class AppXRTE:
         filemenu.add_command(label='Quit',command=self.Q,accelerator="Ctrl+Q")
         menubar.add_cascade(label='File',menu=filemenu)
 
+        webedit=Menu(menubar,tearoff=0)
+        webedit.add_command(label='Import XML',command=self.AppXRWEOpen,accelerator="Ctrl+I")
+        webedit.add_command(label='Export XML...',command=self.AppXRWESave_as,accelerator="Ctrl+X")
+        menubar.add_cascade(label='Web Editor',menu=webedit)
+
         helpmenu=Menu(menubar,tearoff=0)
-        helpmenu.add_command(label='About',command=self.About,accelerator="Ctrl+A")
+        helpmenu.add_command(label='About XRead',command=self.About,accelerator="Ctrl+A")
+        helpmenu.add_command(label='About Web Editor',command=self.AppXRWEAbout,accelerator="Ctrl+W")
+        helpmenu.add_command(label='Web Editor Style',command=self.AppXRWEStyle,accelerator="Ctrl+Shift+W")
         menubar.add_cascade(label='Help',menu=helpmenu)
 
         master.config(menu=menubar)
@@ -75,8 +83,20 @@ class AppXRTE:
     def About(self):
         mb.showinfo('About XRead',xreadInfo)
 
+    def AppXRWEOpen(self):
+        web.AppXRWE.Open(self)
+
+    def AppXRWESave_as(self):
+        web.AppXRWE.Save_as(self)
+
+    def AppXRWEAbout(self):
+        web.AppXRWE.About(self)
+
+    def AppXRWEStyle(self):
+        web.AppXRWE.Style(self)
+
 if __name__=='__main__':
     root = Tk()
-    root.wm_title('XRead Text Editor')
+    root.wm_title('XRead Text Editor Version '+version)
     app = AppXRTE(root)
     root.mainloop()

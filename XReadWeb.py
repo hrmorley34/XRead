@@ -6,11 +6,23 @@ import tkinter.filedialog as fd
 import tkinter.messagebox as mb
 from xml.etree import ElementTree as ET
 
-version='1.0'
+version='1.1'
 xreadInfo='This is XRead Web/XML Editor version '+version+'''.
 This uses Python 3 and Tkinter.
 Created by poikNplop on Github.
 https://github.com/poikNplop/XRead'''
+
+wewi = '''Writing style:
+Tabs (indentation) represent depth
+into the XML tree. Each line is
+then written to the form:
+tagname '#' text '#' tail '#' {'attrib':'something'}
+Blank may look like:
+tagname '#'  '#'  '#' {}
+Note a double space where the h is:
+ '#'HH'#'
+That is it.
+'''
 
 def htmli(xml):
     root = ET.fromstring(xml)
@@ -78,6 +90,7 @@ class AppXRWE:
 
         helpmenu=Menu(menubar,tearoff=0)
         helpmenu.add_command(label='About',command=self.About,accelerator="Ctrl+A")
+        helpmenu.add_command(label='WE Style',command=self.Style,accelerator="Ctrl+W")
         menubar.add_cascade(label='Help',menu=helpmenu)
 
         master.config(menu=menubar)
@@ -130,6 +143,9 @@ class AppXRWE:
 
     def About(self):
         mb.showinfo('About XRead WE',xreadInfo)
+
+    def Style(self):
+        mb.showinfo('XRead WE Writing Style',wewi)
 
 if __name__=='__main__':
     root = Tk()
