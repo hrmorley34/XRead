@@ -4,14 +4,64 @@
 from tkinter import *
 import tkinter.filedialog as fd
 import tkinter.messagebox as mb
+from xml.etree import ElementTree as ET
 
-version='1.1.1'
-xreadInfo='This is XRead Text Editor version '+version+'''.
+version='1.0'
+xreadInfo='This is XRead Web/XML Editor version '+version+'''.
 This uses Python 3 and Tkinter.
 Created by poikNplop on Github.
 https://github.com/poikNplop/XRead'''
 
-class AppXRTE:
+def htmli(xml):
+    root = ET.fromstring(xml)
+    out = x2i(root)
+    return(out)
+
+def htmlo(text):
+    root = i2x(text)
+    out = ET.tostring(root, encoding='unicode')
+    return(out)
+
+def x2i(root):
+    if root.text == None:
+        root.text = ''
+    if root.tail == None:
+        root.tail = ''
+    ic = str(root.tag) +" '#' "+ str(root.text) +" '#' "+ str(root.tail) +" '#' "+ str(root.attrib)
+    for child in root:
+        v = x2i(child)
+        for line in v.split('\n'):
+            ic += '\n\t' + line
+    return(ic)
+
+def i2x(text):
+    l = []
+    oldx = 0
+    for line in text.split('\n'):
+        if line != '':
+            x = 0
+            for char in line:
+                if char == '\t':
+                    x+=1
+                else:
+                    break
+            oldx = x
+            ls = line[x:].split(" '#' ")
+            l.append((x, ls[0], eval(" '#' ".join(ls[3:])), ls[1], ls[2]))
+    plev = {}
+    for i in l:
+        if i[0] == 0:
+            plev[0] = ET.Element(i[1],i[2])
+            plev[0].text = i[3]
+            plev[0].tail = i[4]
+        else:
+            plev[i[0]] = ET.SubElement(plev[i[0]-1],i[1],i[2])
+            plev[i[0]].text = i[3]
+            plev[i[0]].tail = i[4]
+    root = plev[0]
+    return(root)
+
+class AppXRWE:
     def __init__(self,master):
         self.file_is_saved=False
         self.cfile=None
@@ -53,14 +103,18 @@ class AppXRTE:
         file = fd.askopenfile(mode='r')
         self.text.delete("1.0",END)
         self.cfile = file.name
-        self.text.insert(END,file.read())
+        input_ = END,file.read()
+        output = htmli(input_)
+        self.text.insert(output)
         file.close()
         self.file_is_saved=True
 
     def Save(self):
         if self.file_is_saved:
             f = open(self.cfile,mode='w')
-            f.write(self.text.get("1.0",END))
+            input_ = self.text.get("1.0",END)
+            output = htmlo(input_)
+            f.write(output)
             f.close()
         else:
             self.Save_as()
@@ -68,15 +122,17 @@ class AppXRTE:
     def Save_as(self):
         f = fd.asksaveasfile(mode='w')
         self.cfile = f.name
-        f.write(self.text.get("1.0",END))
+        input_ = self.text.get("1.0",END)
+        output = htmlo(input_)
+        f.write(output)
         f.close()
         self.file_is_saved=True
 
     def About(self):
-        mb.showinfo('About XRead',xreadInfo)
+        mb.showinfo('About XRead WE',xreadInfo)
 
 if __name__=='__main__':
     root = Tk()
-    root.wm_title('XRead Text Editor')
-    app = AppXRTE(root)
+    root.wm_title('XRead Web Editor')
+    app = AppXRWE(root)
     root.mainloop()
