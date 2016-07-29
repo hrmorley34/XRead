@@ -34,10 +34,15 @@ this (notice the tabs and double spaces):
 
 `
 a '#'  '#'  '#' {'it':'cheese'}
+
 	b '#' text '#' stuff '#' {}
+
 		c '#'  '#'  '#' {}
+
 	d '#'  '#' la '#' {}
+
 		e '#'  '#'  '#' {}
+
 		f '#'  '#'  '#' {}
 `
 Basically the system is:
