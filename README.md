@@ -10,7 +10,7 @@ To run:
 
    - $ python3 XRead.py
 
-OR - $ chmod +x XRead.py && ./XRead.py
+   - $ chmod +x XRead.py && ./XRead.py
 
 in the bash terminal. You may also need to replace `python3` in
 the first command with `python` if you only have python 3 and not
@@ -33,6 +33,7 @@ this (notice the tabs and double spaces):
 `<a it='cheese'><b>text<c/></b>stuff<d><e>hmm<e/><f/></d>la</a>`
 
 `
+
 a '#'  '#'  '#' {'it':'cheese'}
 
 	b '#' text '#' stuff '#' {}
@@ -45,6 +46,7 @@ a '#'  '#'  '#' {'it':'cheese'}
 
 		f '#'  '#'  '#' {}
 `
+
 Basically the system is:
 
 `tagname '#' text '#' tailtext '#' {'attrib':'utes'}`
