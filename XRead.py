@@ -6,7 +6,7 @@ import tkinter.filedialog as fd
 import tkinter.messagebox as mb
 import XReadWeb as web
 
-version='1.1.2 +WE'+web.version+''
+version='1.1.3 +WE'+web.version+''
 xreadInfo='This is XRead Text Editor version '+version+'''.
 This uses Python 3 and Tkinter.
 Created by poikNplop on Github.
@@ -16,6 +16,7 @@ class AppXRTE:
     def __init__(self,master):
         self.file_is_saved=False
         self.cfile=None
+        self.master = master
 
         menubar = Menu(root)
 
@@ -54,6 +55,7 @@ class AppXRTE:
             self.Save()
         self.file_is_saved=False
         self.text.delete("1.0",END)
+        self.master.wm_title('XRead Text Editor '+version)
 
     def Open(self):
         if mb.askyesno('Save?','Would you like to save?'):
@@ -61,6 +63,7 @@ class AppXRTE:
         file = fd.askopenfile(mode='r')
         self.text.delete("1.0",END)
         self.cfile = file.name
+        self.master.wm_title('XRead Text Editor - '+self.cfile)
         self.text.insert(END,file.read())
         file.close()
         self.file_is_saved=True
@@ -76,6 +79,7 @@ class AppXRTE:
     def Save_as(self):
         f = fd.asksaveasfile(mode='w')
         self.cfile = f.name
+        self.master.wm_title('XRead Text Editor - '+self.cfile)
         f.write(self.text.get("1.0",END))
         f.close()
         self.file_is_saved=True
@@ -97,6 +101,6 @@ class AppXRTE:
 
 if __name__=='__main__':
     root = Tk()
-    root.wm_title('XRead Text Editor Version '+version)
+    root.wm_title('XRead Text Editor '+version)
     app = AppXRTE(root)
     root.mainloop()

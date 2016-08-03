@@ -6,7 +6,7 @@ import tkinter.filedialog as fd
 import tkinter.messagebox as mb
 from xml.etree import ElementTree as ET
 
-version='1.1'
+version='1.2'
 xreadInfo='This is XRead Web/XML Editor version '+version+'''.
 This uses Python 3 and Tkinter.
 Created by poikNplop on Github.
@@ -75,8 +75,8 @@ def i2x(text):
 
 class AppXRWE:
     def __init__(self,master):
-        self.file_is_saved=False
-        self.cfile=None
+        self.wfile_is_saved=False
+        self.wcfile=None
 
         menubar = Menu(root)
 
@@ -107,7 +107,7 @@ class AppXRWE:
     def New(self):
         if mb.askyesno('Save?','Would you like to save?'):
             self.Save()
-        self.file_is_saved=False
+        self.wfile_is_saved=False
         self.text.delete("1.0",END)
 
     def Open(self):
@@ -115,16 +115,16 @@ class AppXRWE:
             self.Save()
         file = fd.askopenfile(mode='r')
         self.text.delete("1.0",END)
-        self.cfile = file.name
+        self.wcfile = file.name
         input_ = END,file.read()
         output = htmli(input_)
         self.text.insert(output)
         file.close()
-        self.file_is_saved=True
+        self.wfile_is_saved=True
 
     def Save(self):
-        if self.file_is_saved:
-            f = open(self.cfile,mode='w')
+        if self.wfile_is_saved:
+            f = open(self.wcfile,mode='w')
             input_ = self.text.get("1.0",END)
             output = htmlo(input_)
             f.write(output)
@@ -134,12 +134,12 @@ class AppXRWE:
 
     def Save_as(self):
         f = fd.asksaveasfile(mode='w')
-        self.cfile = f.name
+        self.wcfile = f.name
         input_ = self.text.get("1.0",END)
         output = htmlo(input_)
         f.write(output)
         f.close()
-        self.file_is_saved=True
+        self.wfile_is_saved=True
 
     def About(self):
         mb.showinfo('About XRead WE',xreadInfo)

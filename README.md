@@ -13,17 +13,18 @@ To run:
    - $ chmod +x XRead.py && ./XRead.py
 
 in the bash terminal. You may also need to replace `python3` in
-the first command with `python` if you only have python 3 and not
-python 2.
+the first command with `python` if you only have Python 3 and not
+Python 2.
 
 XRead works like a standard plain-text editor. Don't try and open
-OpenOffice or Microsoft Word files. It won't work.
+OpenOffice or Microsoft Word files. It won't work. No RTF, ODT,
+DOCX, etc.
 
 ## Web Editor
 
 The web editor is used as two things:
 
-Another application (in the command replace `XRead.py` with
+Another application (in the command just replace `XRead.py` with
 `XReadWeb.py`)
 
 An addon to XRead.py allowing you to use xml/html importing and
