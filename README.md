@@ -33,9 +33,7 @@ this (notice the tabs and double spaces):
 
 `<a it='cheese'><b>text<c/></b>stuff<d><e>hmm<e/><f/></d>la</a>`
 
-`
-
-a '#'  '#'  '#' {'it':'cheese'}
+    a '#'  '#'  '#' {'it':'cheese'}
 
 	b '#' text '#' stuff '#' {}
 
@@ -46,7 +44,6 @@ a '#'  '#'  '#' {'it':'cheese'}
 		e '#'  '#'  '#' {}
 
 		f '#'  '#'  '#' {}
-`
 
 Basically the system is:
 
