@@ -35,15 +35,15 @@ this (notice the tabs and double spaces):
 
     a '#'  '#'  '#' {'it':'cheese'}
 
-	b '#' text '#' stuff '#' {}
+    	b '#' text '#' stuff '#' {}
 
-		c '#'  '#'  '#' {}
+    		c '#'  '#'  '#' {}
 
-	d '#'  '#' la '#' {}
+    	d '#'  '#' la '#' {}
 
-		e '#'  '#'  '#' {}
+    		e '#'  '#'  '#' {}
 
-		f '#'  '#'  '#' {}
+    		f '#'  '#'  '#' {}
 
 Basically the system is:
 
