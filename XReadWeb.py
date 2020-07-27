@@ -9,8 +9,8 @@ from xml.etree import ElementTree as ET
 version='1.2'
 xreadInfo='This is XRead Web/XML Editor version '+version+'''.
 This uses Python 3 and Tkinter.
-Created by poikNplop on Github.
-https://github.com/poikNplop/XRead'''
+Created by hrmorley34 on Github.
+https://github.com/hrmorley34/XRead'''
 
 wewi = '''Writing style:
 Tabs (indentation) represent depth

@@ -9,8 +9,8 @@ import XReadWeb as web
 version='1.1.3 +WE'+web.version+''
 xreadInfo='This is XRead Text Editor version '+version+'''.
 This uses Python 3 and Tkinter.
-Created by poikNplop on Github.
-https://github.com/poikNplop/XRead'''
+Created by hrmorley34 on Github.
+https://github.com/hrmorley34/XRead'''
 
 class AppXRTE:
     def __init__(self,master):
