@@ -1,5 +1,5 @@
 # XRead Python Text Editor
-## V1.1.3 +WE 1.2
+## V1.3 +WE 1.3
 ## By hrmorley34
 
 A Python 3 and Tkinter Text Editor.

@@ -6,7 +6,7 @@ import tkinter.filedialog as fd
 import tkinter.messagebox as mb
 import XReadWeb as web
 
-version = f"1.1.3 +WE{web.version}"
+version = f"1.3 +WE{web.version}"
 xreadInfo = f"""This is XRead Text Editor version {version}.
 This uses Python 3 and Tkinter.
 Created by hrmorley34 on Github.

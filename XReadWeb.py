@@ -6,7 +6,7 @@ import tkinter.filedialog as fd
 import tkinter.messagebox as mb
 from xml.etree import ElementTree as ET
 
-version = "1.2"
+version = "1.3"
 xreadInfo = f"""This is XRead Web/XML Editor version {version}.
 This uses Python 3 and Tkinter.
 Created by hrmorley34 on Github.
