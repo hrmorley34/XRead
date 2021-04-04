@@ -9,7 +9,7 @@ from xml.etree import ElementTree as ET
 version = "1.3"
 xreadInfo = f"""This is XRead Web/XML Editor version {version}.
 This uses Python 3 and Tkinter.
-Created by hrmorley34 on Github.
+Created by hrmorley34 on Github; licensed under the MIT.
 https://github.com/hrmorley34/XRead"""
 
 wewi = """Writing style:

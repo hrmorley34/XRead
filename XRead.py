@@ -9,7 +9,7 @@ import XReadWeb as web
 version = f"1.3 +WE{web.version}"
 xreadInfo = f"""This is XRead Text Editor version {version}.
 This uses Python 3 and Tkinter.
-Created by hrmorley34 on Github.
+Created by hrmorley34 on Github; licensed under the MIT.
 https://github.com/hrmorley34/XRead"""
 
 
